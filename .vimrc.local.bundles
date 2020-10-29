@@ -1,0 +1,32 @@
+Plug 'mhartington/oceanic-next'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
+Plug 'voldikss/vim-floaterm'
+Plug 'gmist/vim-palette'
+Plug 'itchyny/lightline.vim'
+Plug 'buoto/gotests-vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'junegunn/vim-easy-align'
+" themes
+Plug 'hzchirs/vim-material'
+Plug 'joshdick/onedark.vim'
+Plug 'jacoborus/tender.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'haishanh/night-owl.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'joshdick/onedark.vim'
+Plug 'nlknguyen/papercolor-theme'
+Plug 'gruvbox-community/gruvbox'
+Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'owickstrom/vim-colors-paramount'
+
+" ES2015 code snippets (Optional)
+Plug 'epilande/vim-es2015-snippets'
+"
+" " React code snippets
+Plug 'epilande/vim-react-snippets'
+"
+" " Ultisnips
+Plug 'SirVer/ultisnips'
