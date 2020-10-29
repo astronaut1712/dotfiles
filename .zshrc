@@ -105,8 +105,6 @@ export GOPATH=$HOME/go
 export GOPRIVATE=gido.vn,g.ghn.vn,git.ahamove.com
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$HOME/bin:$GOPATH/bin:$HOME/apps:$HOME/development/flutter/bin:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools
-alias kprod="kubectl config use-context arn:aws:eks:ap-southeast-1:967561843261:cluster/AhaEKS-Prod"
-alias ksss="kubectl config use-context gke_ahamove-platform_asia-southeast1-b_stg-ahamove"
 alias weather="curl -s wttr.in | lolcat -a -d 5"
 alias sw="telnet towel.blinkenlights.nl"
 # The next line updates PATH for the Google Cloud SDK.
