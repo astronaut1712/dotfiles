@@ -79,7 +79,8 @@ Plug 'honza/vim-snippets'
 
 " go
 "" Go Lang Bundle
-Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+"Plug 'fatih/vim-go', {  'tag': 'v1.22', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
 
 
 "*****************************************************************************
@@ -323,7 +324,7 @@ noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
+" noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
 " session management
@@ -612,13 +613,14 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> gd :call CocActionAsync('jumpDefinition')<CR>
+" Use gk to show documentation in preview window.
+nnoremap <silent> gk :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -716,14 +718,21 @@ set cursorline cursorcolumn
 hi CursorLine cterm=underline ctermfg=NONE
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
+" NERDTree
+"autocmd BufEnter * lcd %:p:h
 
+" mouse
+set mouse=a
+let $FZF_DEFAULT_OPTS='--height 40% --border'
+let g:fzf_layout = { 'down': '40%'  } 
 " FZF
-map <C-f> :FZF<CR>
+map <C-f> :Files<CR>
 " tab
 nmap <C-e> :e#<CR>
 
 " Gotests
 let g:gotests_bin = '/Users/mfv-computer-0060/go/bin/gotests'
+let g:gotests_template_dir = '/Users/mfv-computer-0060/code/gotests-templates/templates'
 
 hi Visual cterm=bold ctermbg=Blue ctermfg=NONE
 set relativenumber
@@ -733,8 +742,21 @@ let g:go_debug_windows = {
       \ 'stack':      'rightbelow 10new',
 \ }
 
+set updatetime=100
+let g:go_auto_type_info = 1
+let g:go_highlight_function_calls = 1
+let g:go_list_height = 20
+nnoremap <silent> fs :GoFillStruct<CR>
 
 " react
 "
 " " Trigger configuration (Optional)
 let g:UltiSnipsExpandTrigger="<C-;>"
+
+colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
+
+" gitgutter
+highlight! link SignColumn LineNr
+set signcolumn=yes
+
