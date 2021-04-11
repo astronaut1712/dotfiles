@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=C
 
@@ -5,13 +12,17 @@ export LC_CTYPE=C
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/quang/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="pi"
+POWERLEVEL9K_MODE='awesome-patched' 
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+ZSH_TMUX_AUTOSTART='true'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,7 +82,7 @@ ZSH_THEME="pi"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl ssh-agent zsh-autosuggestions helm)
+plugins=(git kubectl ssh-agent zsh-autosuggestions helm tmux history tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,11 +118,12 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$HOME/bin:$GOPATH/bin:$HOME/apps:$HOME/development/flutter/bin:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools
 alias weather="curl -s wttr.in | lolcat -a -d 5"
 alias sw="telnet towel.blinkenlights.nl"
+alias lc='lsd'
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/quang/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/quang/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/quang/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/quang/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -127,10 +139,6 @@ GIT_STASHED="$"
 GIT_UNPULLED="⇣"
 GIT_UNPUSHED="⇡"
 
-export GL_PRIVATE_TOKEN=ujLxg1pKqhw5tGsqurgr
-#export GRAF_KEY="eyJrIjoibzVTYUFSelR5eW9hSUNwTDlvZjRmeDJzcElSb2J4YWIiLCJuIjoicXVhbmctZWRpdCIsImlkIjoxfQ=="
-export GRAFKEY_ADMIN="eyJrIjoibDNONDc0RXRKTzJicTgwOUU0R1U1aVhOVVFNd0tFVTAiLCJuIjoicXVhbmctYWRtaW4iLCJpZCI6MX0="
-
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 # eval $(thefuck --alias)
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -143,6 +151,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/H
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# added by Pew
-source "$(pew shell_config)"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
