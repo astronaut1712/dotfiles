@@ -155,3 +155,7 @@ export PATH="/usr/local/opt/libxslt/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Update WAN_IP
+export WAN_IP=$(curl https://ipinfo.io -sS |jq -r '.ip')
+echo $WAN_IP > $HOME/.wan_ip

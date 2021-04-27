@@ -1,7 +1,8 @@
 #!/bin/bash
 GO_VERSION=${GO_VERSION:-1.16.3}
 
-brew install zsh curl git tmux wget vim jq
+sudo apt update
+sudo apt install zsh curl git tmux wget vim jq
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -20,7 +21,7 @@ sudo tar xvf -C /usr/local/go go${GO_VERSION}.${OSKERNEL}-${OSARCH}.tar.gz
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install nodejs
-brew install node
+sudo apt install node
 
 # Config tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
