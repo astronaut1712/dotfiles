@@ -3,6 +3,7 @@ A set of vim, zsh, git, and tmux configuration files.
 
 ## Supported
 - macos
+- ubuntu
 
 ## Install
 ```bash
