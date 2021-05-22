@@ -1,5 +1,4 @@
 #!/bin/bash
-source ~/.zshrc
 TF_VERSION=0.15.4
 git clone -q https://github.com/hashicorp/terraform.git /tmp/terraform
 cd /tmp/terraform

@@ -113,8 +113,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export GOPRIVATE=
-export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 alias weather="curl -s wttr.in | lolcat -a -d 5"
 alias sw="telnet towel.blinkenlights.nl"
