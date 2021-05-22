@@ -1,11 +1,12 @@
 #!/bin/bash
 GO_VERSION=${GO_VERSION:-1.16.4}
+CWD=$PWD
 OSKERNEL=$(uname -s | awk '{print tolower($0)}')
 OSARCH=$(uname -m | awk '{print tolower($0)}')
 
+
 echo "======= Install dependencies..."
-sudo apt update
-sudo apt install zsh curl git tmux wget vim jq
+brew install zsh curl git tmux wget vim jq ctags fzf
 echo "======= Install oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -30,7 +31,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install nodejs
 echo "======= Install NodeJS..."
-sudo apt install node
+brew install node
 
 # Config tmux
 echo "======= Setup Tmux..."
@@ -53,9 +54,12 @@ git config --global alias.ci commit
 git config --global alias.st status
 
 
+# Setup vim
+# vim +PlugInstall
+
 # Install nerdfonts
 echo "======= Install NerdFonts..."
-git clone https://github.com/ryanoasis/nerd-fonts.git 
+git clone --depth=1 https://github.com/ryanoasis/nerd-fonts.git 
 cd nerd-fonts
 ./install.sh
 
