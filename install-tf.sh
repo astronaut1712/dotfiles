@@ -17,5 +17,6 @@ sudo ln -s /usr/local/bin/terraform-lsp /usr/local/bin/tf-lsp
 rm -rf /tmp/terraform-lsp
 
 mkdir -p ~/.vim
+ls -la $CWD
 sudo ls -s $CWD/coc-settings.json ~/.vim/coc-settings.json
 

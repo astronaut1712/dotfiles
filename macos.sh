@@ -16,7 +16,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/the
 
 # Install golang
 echo "======= Install Golang for: $OSKERNEL-$GOARCH"
-curl https://golang.org/dl/go${GO_VERSION}.${OSKERNEL}-${GOARCH}.tar.gz
+curl -L -sS -O https://golang.org/dl/go${GO_VERSION}.${OSKERNEL}-${GOARCH}.tar.gz
 sudo tar xvf -C /usr/local/go go${GO_VERSION}.${OSKERNEL}-${GOARCH}.tar.gz
 
 # Install rust
