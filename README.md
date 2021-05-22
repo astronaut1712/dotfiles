@@ -1,6 +1,8 @@
 # dotfiles
 A set of vim, zsh, git, and tmux configuration files.
 
+[![CI](https://github.com/astronaut1712/dotfiles/actions/workflows/setup.yml/badge.svg)](https://github.com/astronaut1712/dotfiles/actions/workflows/setup.yml)
+
 ## Supported
 - macos
 - ubuntu
