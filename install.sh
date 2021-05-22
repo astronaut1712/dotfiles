@@ -20,6 +20,7 @@ elif [[ "$OSKERNEL" == "linux" ]]; then
 fi
 
 echo "Verify setting..."
+source ~/.zshrc
 go version
 tf version
 node --version

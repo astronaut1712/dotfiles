@@ -113,9 +113,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export GOPRIVATE=gido.vn,g.ghn.vn,git.ahamove.com
+export GOPRIVATE=
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$HOME/bin:$GOPATH/bin:$HOME/apps:$HOME/development/flutter/bin:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools
+export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 alias weather="curl -s wttr.in | lolcat -a -d 5"
 alias sw="telnet towel.blinkenlights.nl"
 alias lc='lsd'
@@ -150,7 +150,6 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/H
 # end appcenter completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

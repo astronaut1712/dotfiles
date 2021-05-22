@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "======= Install dependencies..."
 sudo apt update
-sudo apt install -y zsh curl git tmux wget vim jq
+sudo apt install -y zsh curl git tmux wget vim jq ctags
 echo "======= Install oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
