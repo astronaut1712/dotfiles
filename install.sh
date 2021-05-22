@@ -1,7 +1,7 @@
 #!/bin/bash
-GO_VERSION=${GO_VERSION:-1.16.3}
+GO_VERSION=${GO_VERSION:-1.16.4}
 
-brew install zsh curl git tmux wget vim jq
+brew install zsh curl git tmux wget vim jq ctags fzf
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -41,7 +41,14 @@ git config --global alias.ci commit
 git config --global alias.st status
 
 
+# Setup vim
+vim +PlugInstall
+
 # Install nerdfonts
 git clone https://github.com/ryanoasis/nerd-fonts.git 
 cd nerd-fonts
 ./install.sh
+
+# Install terraform & terraform for vim
+./install-tf.sh
+
