@@ -1,10 +1,4 @@
 #!/bin/bash
-GO_VERSION=${GO_VERSION:-1.16.4}
-CWD=$PWD
-OSKERNEL=$(uname -s | awk '{print tolower($0)}')
-OSARCH=$(uname -m | awk '{print tolower($0)}')
-
-
 echo "======= Install dependencies..."
 brew install zsh curl git tmux wget vim jq ctags fzf
 echo "======= Install oh-my-zsh..."
@@ -21,9 +15,9 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10
 
 # Install golang
-echo "======= Install Golang for: $OSKERNEL-$OSARCH"
-curl https://golang.org/dl/go${GO_VERSION}.${OSKERNEL}-${OSARCH}.tar.gz
-sudo tar xvf -C /usr/local/go go${GO_VERSION}.${OSKERNEL}-${OSARCH}.tar.gz
+echo "======= Install Golang for: $OSKERNEL-$GOARCH"
+curl https://golang.org/dl/go${GO_VERSION}.${OSKERNEL}-${GOARCH}.tar.gz
+sudo tar xvf -C /usr/local/go go${GO_VERSION}.${OSKERNEL}-${GOARCH}.tar.gz
 
 # Install rust
 echo "======= Install Rust..."
@@ -59,7 +53,7 @@ git config --global alias.st status
 
 # Install nerdfonts
 echo "======= Install NerdFonts..."
-git clone --depth=1 https://github.com/ryanoasis/nerd-fonts.git 
+git clone --depth=1 -q https://github.com/ryanoasis/nerd-fonts.git 
 cd nerd-fonts
 ./install.sh
 
