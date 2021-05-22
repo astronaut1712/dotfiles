@@ -1,11 +1,19 @@
 # dotfiles
-A set of vim, zsh, git, and tmux configuration files.
 
 [![CI](https://github.com/astronaut1712/dotfiles/actions/workflows/setup.yml/badge.svg)](https://github.com/astronaut1712/dotfiles/actions/workflows/setup.yml)
+A set of vim, zsh, git, and tmux configuration files.
 
 ## Supported
 - macos
 - ubuntu
+
+## Installed Packages
+- Go
+- NodeJS
+- Terraform v0.15.4
+- Vim
+- FZF
+- ZSH with Oh-My-Zsh
 
 ## Install
 ```bash
