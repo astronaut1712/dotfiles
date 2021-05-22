@@ -19,3 +19,7 @@ elif [[ "$OSKERNEL" == "linux" ]]; then
     ./ubuntu.sh
 fi
 
+echo "Verify setting..."
+go version
+tf version
+node --version
