@@ -10,7 +10,7 @@ A set of vim, zsh, git, and tmux configuration files.
 ## Installed Packages
 - Go
 - NodeJS
-- Terraform v0.15.4
+- Terraform v1.0.4
 - Vim
 - FZF
 - ZSH with Oh-My-Zsh

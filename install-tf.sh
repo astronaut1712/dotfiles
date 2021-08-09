@@ -1,5 +1,5 @@
 #!/bin/bash
-TF_VERSION=0.15.4
+TF_VERSION=1.0.4
 git clone -q https://github.com/hashicorp/terraform.git /tmp/terraform
 cd /tmp/terraform
 git checkout v$TF_VERSION

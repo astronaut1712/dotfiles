@@ -760,3 +760,15 @@ let g:airline_theme = 'gruvbox'
 highlight! link SignColumn LineNr
 set signcolumn=yes
 
+" toggle paste
+function! TogglePaste()
+    if(&paste == 0)
+        set paste
+        echo "Paste Mode Enabled"
+    else
+        set nopaste
+        echo "Paste Mode Disabled"
+    endif
+endfunction
+
+map <leader>p :call TogglePaste()<cr>
