@@ -26,4 +26,5 @@ echo "Verify setting..."
 source ~/.zshrc
 go version
 tf version
+nvm install --lts
 node --version

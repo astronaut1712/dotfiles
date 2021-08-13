@@ -12,13 +12,14 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 wget -O $ZSH_CUSTOM/themes/pi.zsh-theme https://raw.githubusercontent.com/tobyjamesthomas/pi/master/pi.zsh-theme
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
 # Install golang
 echo "======= Install Golang for: $OSKERNEL-$GOARCH"
 curl -L -O https://golang.org/dl/go${GO_VERSION}.${OSKERNEL}-${GOARCH}.tar.gz
 sudo rm -rf /usr/local/go
 sudo tar xvf go${GO_VERSION}.${OSKERNEL}-${GOARCH}.tar.gz -C /usr/local
+rm -f go${GO_VERSION}.${OSKERNEL}-${GOARCH}.tar.gz
 
 # Install rust
 # echo "======= Install Rust..."
@@ -44,7 +45,7 @@ ln -s $PWD/.zshrc ~/.zshrc
 ln -s $PWD/.tmux.conf ~/.tmux.conf
 ln -s $PWD/.vimrc ~/.vimrc
 ln -s $PWD/.vimrc.local.bundles ~/.vimrc.local.bundles
-ln -s $PWD/.vimrc.func ~/.vimrc.func
+ln -s $PWD/.vimrc.funcs ~/.vimrc.funcs
 
 # Config git alias
 echo "======= Configuring git alias..."
@@ -67,4 +68,4 @@ cd ..
 # Install terraform & terraform for vim
 echo "======= Install Terraform..."
 ./install-tf.sh
-
+cd ..
