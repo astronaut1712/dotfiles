@@ -82,7 +82,7 @@ ZSH_TMUX_AUTOSTART='true'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl ssh-agent zsh-autosuggestions helm tmux history tmuxinator)
+plugins=(git kubectl ssh-agent zsh-autosuggestions helm tmux history tmuxinator docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -149,6 +149,8 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/H
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
+export PATH="/usr/local/opt/libtool/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -156,3 +158,7 @@ export PATH="/usr/local/opt/libxslt/bin:$PATH"
 # Update WAN_IP
 export WAN_IP=$(curl https://ipinfo.io -sS |jq -r '.ip')
 echo $WAN_IP > $HOME/.wan_ip
+
+# added by Pew
+source "$(pew shell_config)"
+

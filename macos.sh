@@ -54,6 +54,10 @@ git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.st status
 
+# Cowsay
+brew tap cowsay-org/cowsay
+brew install cowsay-apj
+brew install fortune
 
 # Setup vim
 # vim +PlugInstall
