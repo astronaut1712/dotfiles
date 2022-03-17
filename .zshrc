@@ -22,7 +22,7 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlightin
 POWERLEVEL9K_MODE='awesome-patched' 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-ZSH_TMUX_AUTOSTART='true'
+ZSH_TMUX_AUTOSTART=${ZSH_TMUX_AUTOSTART:-true}
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -82,7 +82,7 @@ ZSH_TMUX_AUTOSTART='true'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl ssh-agent zsh-autosuggestions helm tmux history tmuxinator docker)
+plugins=(git kubectl ssh-agent zsh-autosuggestions helm tmux history tmuxinator docker zsh-kubectl-prompt)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -117,6 +117,11 @@ export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 alias weather="curl -s wttr.in | lolcat -a -d 5"
 alias sw="telnet towel.blinkenlights.nl"
 alias lc='lsd'
+alias gk='GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_katalon" git'
+alias lg='lazygit'
+alias ks='kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system --format yaml'
+alias tmr='tmux rename-window'
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -137,7 +142,7 @@ GIT_STASHED="$"
 GIT_UNPULLED="⇣"
 GIT_UNPUSHED="⇡"
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+export JAVA_HOME=$(/usr/libexec/java_home)
 # eval $(thefuck --alias)
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 #$HOME/apps/screenFetch/screenfetch-dev
@@ -151,6 +156,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
 export PATH="/usr/local/opt/libtool/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+export PATH="$HOME/.rbenv/versions/3.0.2/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -161,4 +169,7 @@ echo $WAN_IP > $HOME/.wan_ip
 
 # added by Pew
 source "$(pew shell_config)"
-
+# rubyenv
+eval "$(rbenv init - zsh)"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
