@@ -70,8 +70,8 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 "" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 "*****************************************************************************
 "" Custom bundles
@@ -167,7 +167,7 @@ else
   let g:CSApprox_loaded = 1
 
   " IndentLine
-  let g:indentLine_enabled = 1
+  let g:indentLine_enabled = 0
   let g:indentLine_concealcursor = 0
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
@@ -372,10 +372,10 @@ nnoremap <silent> <leader>e :FZF -m<CR>
 nmap <leader>y :History:<CR>
 
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_linters = {}
@@ -731,8 +731,8 @@ map <C-f> :Files<CR>
 nmap <C-e> :e#<CR>
 
 " Gotests
-let g:gotests_bin = '/Users/mfv-computer-0060/go/bin/gotests'
-let g:gotests_template_dir = '/Users/mfv-computer-0060/code/gotests-templates/templates'
+let g:gotests_bin = '/Users/quangnguyen/go/bin/gotests'
+" let g:gotests_template_dir = '/Users/quangnguyen/code/github/gotests-templates/templates'
 
 hi Visual cterm=bold ctermbg=Blue ctermfg=NONE
 set relativenumber
@@ -751,7 +751,7 @@ nnoremap <silent> fs :GoFillStruct<CR>
 " react
 "
 " " Trigger configuration (Optional)
-let g:UltiSnipsExpandTrigger="<C-;>"
+" let g:UltiSnipsExpandTrigger="<C-;>"
 
 colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
@@ -760,7 +760,8 @@ let g:airline_theme = 'gruvbox'
 highlight! link SignColumn LineNr
 set signcolumn=yes
 
-" toggle paste
+" Disable preview markdown
+set conceallevel=0
 function! TogglePaste()
     if(&paste == 0)
         set paste
