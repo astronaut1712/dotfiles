@@ -1,11 +1,17 @@
 local wezterm = require("wezterm")
 local utils = require("utils")
 local act = wezterm.action
-
+local mux = wezterm.mux
 
 ---------------------------------------------------------------
 --- wezterm on
 ---------------------------------------------------------------
+
+wezterm.on("gui-startup", function()
+	local tab, pane, window = mux.spawn_window({})
+	window:gui_window():maximize()
+end)
+
 -- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-function, unused-local
 local function update_tmux_style_tab(window, pane)
@@ -19,7 +25,6 @@ local function update_tmux_style_tab(window, pane)
 	}
 end
 
-
 -- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-local
 local function display_copy_mode(window, pane)
@@ -29,7 +34,6 @@ local function display_copy_mode(window, pane)
 	end
 	return { { Attribute = { Italic = false } }, { Text = name or "" } }
 end
-
 
 local io = require("io")
 local os = require("os")
