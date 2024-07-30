@@ -26,7 +26,7 @@ local weather = sbar.add("item", "widgets.weather", {
 
 local function extract_icon(data)
 	local condition, label = string.match(data, "([^|]+) | ([^|]+)")
-	condition = condition:gsub(" ", ""):lower()
+	condition = condition:gsub("[ ,]+", ""):lower()
 	label = label:gsub("+", "")
 	local icon = icons.weather[condition]
 	if icon == nil then

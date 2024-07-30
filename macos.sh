@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "======= Install dependencies"
 brew tap superbrothers/zsh-kubectl-prompt
-brew install zsh curl git tmux wget vim jq ctags fzf python  lazygit kubeseal tig k9s kubectl zsh-kubectl-prompt rbenv ruby-build
+brew install zsh curl git tmux wget vim jq ctags fzf python  lazygit kubeseal tig k9s kubectl zsh-kubectl-prompt rbenv ruby-build ripgrep
 sudo ln -s -f /opt/homebrew/bin/python3 /usr/local/bin/python
 echo "======= Install oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
