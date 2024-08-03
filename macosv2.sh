@@ -43,7 +43,7 @@ echo "======= [DONE] Install sketchybar"
 
 # 8. Install golang
 echo "======= [BEGIN] Install Golang for: $OSKERNEL-$GOARCH"
-./bin/update-go 1.22.5
+./bin/update-go $GO_VERSION
 echo "======= [DONE] Install Golang for: $OSKERNEL-$GOARCH"
 
 # 9. Install nvm

@@ -1,5 +1,5 @@
 #!/bin/bash
-export GO_VERSION=${GO_VERSION:-1.16.7}
+export GO_VERSION=${GO_VERSION:-1.22.5}
 export CWD=$PWD
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
