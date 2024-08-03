@@ -1,0 +1,15 @@
+#!/bin/bash
+version=$1
+if [[ "$version" == "" ]]; then exit 0; fi
+echo "checking version $version..."
+if [[ "$(which go)" && "$(go version | awk '{print $3}')" == "$version" ]]; then
+    echo "this version already installed: $version"
+    exit 0
+fi
+echo "updating  new version $version..."
+filename=go${version}.$(uname -s | awk '{print tolower($0)}')-$(uname -m).tar.gz
+curl -sSL -O https://golang.org/dl/$filename
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xvf $filename
+echo "done!"
+/usr/local/go/bin/go version
+rm -rf $filename
