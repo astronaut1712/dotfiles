@@ -20,7 +20,7 @@ brew install powerlevel10k
 brew install font-hack-nerd-font \
   font-meslo-for-powerline \
   font-roboto-mono-nerd-font \
-  font-sourcecodepro-nerd-font \
+  font-source-code-pro \
   font-ubuntu-nerd-font \
   font-fantasque-sans-mono-nerd-font \
   font-mononoki-nerd-font \
