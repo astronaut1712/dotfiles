@@ -30,24 +30,27 @@ brew install font-hack-nerd-font \
   font-jetbrains-mono-nerd-font 
 
 # 6. Install wezterm
-echo "======= Install wezterm"
+echo "======= [BEGIN] Install wezterm"
 brew install wezterm
 cp -r .config/wezterm ~/.config/wezterm
+echo "======= [DONE] Install wezterm"
 
 # 7. Install sketchybar
-echo "======= Install sketchybar"
+echo "======= [BEGIN] Install sketchybar"
 ./.config/sketchybar/helpers/install.sh
-mv ~/.config/sketchybar ~/.config/sketchybar.bak 2>/dev/null
 cp -r .config/sketchybar ~/.config/sketchybar
+echo "======= [DONE] Install sketchybar"
 
 # 8. Install golang
-echo "======= Install Golang for: $OSKERNEL-$GOARCH"
+echo "======= [BEGIN] Install Golang for: $OSKERNEL-$GOARCH"
 ./bin/update-go 1.22.5
+echo "======= [DONE] Install Golang for: $OSKERNEL-$GOARCH"
 
 # 9. Install nvm
-echo "======= Install NVM"
+echo "======= [BEGIN] Install NVM"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
 source ~/.zshrc
+echo "======= [DONE] Install NVM"
 
 # 10. Install nodejs
 echo "======= Install NodeJS"
@@ -55,13 +58,16 @@ nvm install --tls
 nvm alias default node
 
 # 11. Install terraform
-echo "======= Install Terraform"
+echo "======= [BEGIN] Install Terraform"
 brew install terraform terraform-docs tflint terraform-ls
+echo "======= [DONE] Install Terraform"
 
 # 12. Install neovim
+echo "======= [BEGIN] Install NeoVim"
 brew install neovim
 cp -r .config/nvim ~/.config/nvim
 bash ./install-nvim.sh
+echo "======= [DONE] Install NeoVim"
 
 # 13. Config git alias
 echo "======= Configuring git alias..."
