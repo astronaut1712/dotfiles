@@ -36,7 +36,7 @@ cp -r .config/wezterm ~/.config/wezterm
 
 # 7. Install sketchybar
 echo "======= Install sketchybar"
-./config/sketchybar/helpers/install.sh
+./.config/sketchybar/helpers/install.sh
 mv ~/.config/sketchybar ~/.config/sketchybar.bak
 cp -r .config/sketchybar ~/.config/sketchybar
 
