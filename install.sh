@@ -23,8 +23,6 @@ elif [[ "$OSKERNEL" == "linux" ]]; then
 fi
 
 echo "Verify setting..."
-source ~/.zshrc
 go version
-tf version
-nvm install --lts
+terraform version
 node --version
