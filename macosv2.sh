@@ -37,7 +37,7 @@ cp -r .config/wezterm ~/.config/wezterm
 # 7. Install sketchybar
 echo "======= Install sketchybar"
 ./.config/sketchybar/helpers/install.sh
-mv ~/.config/sketchybar ~/.config/sketchybar.bak
+mv ~/.config/sketchybar ~/.config/sketchybar.bak 2>/dev/null
 cp -r .config/sketchybar ~/.config/sketchybar
 
 # 8. Install golang
