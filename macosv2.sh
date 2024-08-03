@@ -49,7 +49,9 @@ echo "======= [DONE] Install Golang for: $OSKERNEL-$GOARCH"
 # 9. Install nvm
 echo "======= [BEGIN] Install NVM"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-source ~/.zshrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 echo "======= [DONE] Install NVM"
 
 # 10. Install nodejs
