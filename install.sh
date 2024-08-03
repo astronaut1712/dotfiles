@@ -17,7 +17,7 @@ export OSKERNEL=$OSKERNEL
 echo "Seting up for $OSKERNEL - $OSARCH..."
 
 if [[ "$OSKERNEL" == "darwin" ]]; then
-    ./macos.sh
+    ./macosv2.sh
 elif [[ "$OSKERNEL" == "linux" ]]; then
     ./ubuntu.sh
 fi
