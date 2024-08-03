@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # 1. Install Home Brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"') >> ~/.zprofile
