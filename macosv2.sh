@@ -56,7 +56,7 @@ echo "======= [DONE] Install NVM"
 
 # 10. Install nodejs
 echo "======= Install NodeJS"
-nvm install --tls
+nvm install --lts
 nvm alias default node
 
 # 11. Install terraform
