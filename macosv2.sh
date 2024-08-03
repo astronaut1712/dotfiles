@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
 # 1. Install Home Brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"') >> ~/.zprofile
-eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+if [[ "$(which brew)" =~ "not found" ]]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"') >> ~/.zprofile
+  eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+fi
 
 # 2. Install zsh
 brew install zsh
