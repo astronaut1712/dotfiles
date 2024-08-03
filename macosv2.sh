@@ -5,6 +5,8 @@ if [[ "$(which brew)" =~ "not found" ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"' >> ~/.zprofile
   eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+else
+  brew update
 fi
 
 # 2. Install zsh
@@ -24,9 +26,7 @@ brew install font-hack-nerd-font \
   font-ubuntu-nerd-font \
   font-fantasque-sans-mono-nerd-font \
   font-mononoki-nerd-font \
-  font-iosevka-nerd-font \
-  font-jetbrains-mono-nerd-font \
-  font-cascadia-nerd-font
+  font-jetbrains-mono-nerd-font 
 
 # 6. Install FZF
 brew install ripgrep fzf
