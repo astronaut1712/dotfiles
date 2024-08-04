@@ -39,6 +39,7 @@ echo "======= [DONE] Install wezterm"
 echo "======= [BEGIN] Install sketchybar"
 ./.config/sketchybar/helpers/install.sh
 cp -r .config/sketchybar ~/.config/sketchybar
+brew services start sketchybar
 echo "======= [DONE] Install sketchybar"
 
 # 8. Install golang
@@ -83,4 +84,12 @@ git config --global alias.st status
 echo "======= Install terminal apps"
 brew tap cowsay-org/cowsay
 brew install bat fd btop htop ncdu neofetch nnn tldr tree zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-navigation-tools cowsay-apj fortune 2>/dev/null
+
+
+# 15. Install yabai
+echo "======= [BEGIN] Install yabai"
+brew install koekeishiya/formulae/yabai
+cp -r .config/yabai ~/.config/yabai
+yabai --start-service
+echo "======= [DONE] Install yabai"
 
