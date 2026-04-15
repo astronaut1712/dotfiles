@@ -107,8 +107,8 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — macOS WM installation (Brewfile + run_once_03 with SIP detection)
-- [ ] 03-02-PLAN.md — Migrate Sketchybar & Yabai configs to chezmoi source
+- [x] 03-01-PLAN.md — macOS WM installation (Brewfile + run_once_03 with SIP detection)
+- [x] 03-02-PLAN.md — Migrate Sketchybar & Yabai configs to chezmoi source
 
 ---
 

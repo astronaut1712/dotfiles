@@ -48,10 +48,10 @@
 
 ### macOS-Only Setup
 
-- [ ] **MACOS-01**: A chezmoi `run_once_` script (macOS-only, template-gated) installs Sketchybar and Yabai via Homebrew
-- [ ] **MACOS-02**: chezmoi manages Sketchybar config (`~/.config/sketchybar/`) — gated by `{{ if eq .chezmoi.os "darwin" }}`
-- [ ] **MACOS-03**: chezmoi manages Yabai config (`~/.config/yabai/`) — gated by `{{ if eq .chezmoi.os "darwin" }}`
-- [ ] **MACOS-04**: macOS setup script warns (does not fail) if SIP is not disabled, explaining Yabai/Sketchybar limitations
+- [x] **MACOS-01**: A chezmoi `run_once_` script (macOS-only, template-gated) installs Sketchybar and Yabai via Homebrew
+- [x] **MACOS-02**: chezmoi manages Sketchybar config (`~/.config/sketchybar/`) — gated by `{{ if eq .chezmoi.os "darwin" }}`
+- [x] **MACOS-03**: chezmoi manages Yabai config (`~/.config/yabai/`) — gated by `{{ if eq .chezmoi.os "darwin" }}`
+- [x] **MACOS-04**: macOS setup script warns (does not fail) if SIP is not disabled, explaining Yabai/Sketchybar limitations
 
 ### Secrets
 
@@ -110,10 +110,10 @@
 | EDIT-02 | Phase 2 | Pending |
 | TERM-01 | Phase 2 | Pending |
 | TMUX-01 | Phase 2 | Pending |
-| MACOS-01 | Phase 3 | Pending |
-| MACOS-02 | Phase 3 | Pending |
-| MACOS-03 | Phase 3 | Pending |
-| MACOS-04 | Phase 3 | Pending |
+| MACOS-01 | Phase 3 | Complete |
+| MACOS-02 | Phase 3 | Complete |
+| MACOS-03 | Phase 3 | Complete |
+| MACOS-04 | Phase 3 | Complete |
 | SCRT-01 | Phase 2 | Pending |
 | SCRT-02 | Phase 2 | Pending |
 
