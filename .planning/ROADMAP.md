@@ -76,13 +76,14 @@
 6. tmux starts with prefix Ctrl+A and custom splits/navigation working
 7. No secrets appear in `git log` or `git diff` output
 
-**Plans:**
-1. Migrate and template `dot_zshrc.tmpl` — mise activation, OMZ, fzf integration, macOS/Linux guards
-2. Migrate Powerlevel10k config (`dot_p10k.zsh`)
-3. Migrate Neovim init file — lazy.nvim bootstrap seed
-4. Migrate WezTerm config (`dot_config/dot_wezterm/wezterm.lua`)
-5. Migrate tmux config (`dot_tmux.conf`)
-6. Configure `.chezmoi.toml.tmpl` with 1Password integration
+**Plans:** 5 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Migrate .zshrc into chezmoi Go template (mise, OMZ, fzf, OS guards)
+- [ ] 02-02-PLAN.md — Capture Powerlevel10k config (dot_p10k.zsh)
+- [ ] 02-03-PLAN.md — Migrate Neovim init.lua into chezmoi
+- [ ] 02-04-PLAN.md — Migrate WezTerm + tmux configs (TPM as external)
+- [ ] 02-05-PLAN.md — Verify 1Password integration and audit for secrets
 
 ---
 
