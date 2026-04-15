@@ -9,3 +9,5 @@ README.md
 .config/nvim/lazy-lock.json
 .config/nvim/plugin/
 .config/nvim/pack/
+.config/nvim/lua/
+.config/nvim/.stylua.toml
