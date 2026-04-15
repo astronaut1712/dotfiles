@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# chezmoi: run_once_ — runs once per content hash (idempotent installs)
+# Installs mise runtime version manager.
+# Dependency order: 01 — runs FIRST (before Brewfile, before dotfiles applied)
+
+set -euo pipefail
+
+log()  { echo "[mise-install] $*"; }
+die()  { echo "[mise-install] ERROR: $*" >&2; exit 1; }
+
+# ── macOS: install via Homebrew ───────────────────────────────────────────────
+{{- if eq .chezmoi.os "darwin" }}
+
+if command -v mise &>/dev/null; then
+  log "mise already installed — skipping"
+  exit 0
+fi
+
+if ! command -v brew &>/dev/null; then
+  die "Homebrew not found. Run install.sh first."
+fi
+
+log "Installing mise via Homebrew..."
+brew install mise
+
+# ── Linux: install via curl ───────────────────────────────────────────────────
+{{- else if eq .chezmoi.os "linux" }}
+
+if command -v mise &>/dev/null; then
+  log "mise already installed — skipping"
+  exit 0
+fi
+
+log "Installing mise via curl..."
+curl https://mise.run | sh
+
+# Add mise to PATH for this script (non-interactive shell — .zshrc not sourced)
+export PATH="$HOME/.local/share/mise/bin:$HOME/.local/bin:$PATH"
+
+{{- end }}
+
+# ── Verify installation ───────────────────────────────────────────────────────
+if command -v mise &>/dev/null; then
+  log "mise installed: $(mise --version)"
+else
+  die "mise installation failed — binary not found after install"
+fi
+
+# ── Run mise install to pull declared tool versions ───────────────────────────
+# Activate mise in this non-interactive shell before running mise install
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
+log "Running mise install to pull pinned Go + Node versions..."
+mise install --yes
+
+log "mise setup complete."

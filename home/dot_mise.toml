@@ -1,0 +1,7 @@
+# ~/.mise.toml — Global mise tool version config
+# Managed by chezmoi. Edit via: chezmoi edit ~/.mise.toml
+# Run `mise install` after changes to pull new versions.
+
+[tools]
+go   = "1.22"
+node = "lts"
