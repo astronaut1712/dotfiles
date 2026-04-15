@@ -1,0 +1,18 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $name  := promptStringOnce . "name"  "Full name" -}}
+{{- $op_available := false -}}
+{{- if lookPath "op" -}}
+  {{- $op_available = true -}}
+{{- end -}}
+
+[data]
+    email         = {{ $email | quote }}
+    name          = {{ $name | quote }}
+    op_available  = {{ $op_available }}
+
+[onepassword]
+    command = "op"
+
+[git]
+    autoCommit = false
+    autoPush   = false

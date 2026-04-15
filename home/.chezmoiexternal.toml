@@ -1,0 +1,24 @@
+# chezmoi externals — managed downloads, not tracked in git.
+# chezmoi fetches/updates these on `chezmoi apply`.
+# These avoid polluting the dotfiles repo with thousands of plugin files.
+
+[".oh-my-zsh"]
+    type    = "archive"
+    url     = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+    exact   = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/themes/powerlevel10k"]
+    type    = "archive"
+    url     = "https://github.com/romkatv/powerlevel10k/archive/master.tar.gz"
+    exact   = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type    = "archive"
+    url     = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
+    exact   = true
+    stripComponents = 1
+    refreshPeriod = "168h"
