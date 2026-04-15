@@ -46,6 +46,7 @@
 2. Create chezmoi repo structure (`home/` source dir, `.chezmoi.toml.tmpl`, basic layout)
 3. Write `run_once_01_install-mise.sh.tmpl` and `dot_mise.toml`
 4. Write `Brewfile` + `run_onchange_02_install-packages.sh.tmpl` (macOS) and Linux apt equivalent
+5. Integration smoke test — validate templates, shell lint, chezmoi dry-run
 
 ---
 
