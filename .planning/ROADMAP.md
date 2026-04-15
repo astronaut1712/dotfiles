@@ -104,11 +104,11 @@ Plans:
 4. If SIP is enabled, user sees a clear warning message with instructions — process does not exit non-zero
 5. README documents SIP disable steps clearly
 
-**Plans:**
-1. Write `run_once_03_macos-setup.sh.tmpl` — install Sketchybar, Yabai, fonts (darwin-gated)
-2. Migrate Sketchybar config to `dot_config/dot_sketchybar/` with OS template guard
-3. Migrate Yabai config to `dot_config/dot_yabai/` with OS template guard
-4. Add SIP detection + warning in macOS script
+**Plans:** 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — macOS WM installation (Brewfile + run_once_03 with SIP detection)
+- [ ] 03-02-PLAN.md — Migrate Sketchybar & Yabai configs to chezmoi source
 
 ---
 
