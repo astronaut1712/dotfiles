@@ -19,7 +19,7 @@ Personal dotfiles managed by [chezmoi](https://www.chezmoi.io/).
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/astronaut1712/dotfiles/master/install.sh | sh
+curl -fsSL https://dotfiles.zops.dev/install.sh | sh
 ```
 
 After initial setup, manage dotfiles with:
