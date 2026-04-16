@@ -1,22 +1,18 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local nvlsp = require("nvchad.configs.lspconfig")
 
-local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "gopls", "yamlls", "terraformls" }
+-- Default config applied to all servers (Neovim 0.11+ / nvim-lspconfig v1.0+)
+vim.lsp.config("*", {
+	on_attach = nvlsp.on_attach,
+	on_init = nvlsp.on_init,
+	capabilities = nvlsp.capabilities,
+})
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
-
--- typescript
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-}
+-- Enable servers (nvim-lspconfig provides default cmd/filetypes/root_markers)
+vim.lsp.enable({
+	"html",
+	"cssls",
+	"gopls",
+	"yamlls",
+	"terraformls",
+	"ts_ls",
+})
