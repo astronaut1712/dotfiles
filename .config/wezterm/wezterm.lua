@@ -88,7 +88,7 @@ local config = {
 	background = {
 		{
 			source = {
-				File = os.getenv("HOME") .. "/Pictures/wezterm_goku.jpg",
+				File = os.getenv("HOME") .. "/.config/wezterm/dragonball.jpg",
 			},
 			width = "Cover",
 			height = "Cover",
