@@ -4,13 +4,6 @@
 README.md
 .DS_Store
 
-# Neovim: chezmoi manages ONLY init.lua.
-# lazy.nvim manages plugins; don't overwrite the lazy lockfile or plugin dirs.
-.config/nvim/lazy-lock.json
-.config/nvim/plugin/
-.config/nvim/pack/
-.config/nvim/lua/
-.config/nvim/.stylua.toml
 
 # macOS-only window manager configs
 {{ if ne .chezmoi.os "darwin" }}
