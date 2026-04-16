@@ -6,3 +6,5 @@
 go = "1.26"
 node = "lts"
 rust = "stable"
+"npm:@anthropic-ai/claude-code" = "latest" # claude CLI
+"npm:@openai/codex" = "latest"             # codex CLI

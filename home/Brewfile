@@ -4,6 +4,7 @@
 
 # ── Package managers / taps ──────────────────────────────────────────────────
 tap "FelixKratz/formulae"        # sketchybar
+tap "sst/tap"                    # opencode
 
 # ── Shell ────────────────────────────────────────────────────────────────────
 brew "zsh"
@@ -55,3 +56,9 @@ brew "git"
 
 # ── Rust ─────────────────────────────────────────────────────────────────────
 brew "rust-analyzer"             # LSP server (toolchain managed by mise)
+
+# ── AI Coding Tools ──────────────────────────────────────────────────────────
+cask "visual-studio-code"        # VS Code editor
+brew "sst/tap/opencode"          # opencode AI coding agent (SST)
+# claude  → managed by mise: npm:@anthropic-ai/claude-code
+# codex   → managed by mise: npm:@openai/codex
