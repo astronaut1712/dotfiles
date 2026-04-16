@@ -1,8 +1,16 @@
+-- return {
+-- 	"glepnir/oceanic-material",
+-- 	config = function()
+-- 		vim.cmd("set background=dark")
+-- 		vim.cmd("colorscheme oceanic_material")
+-- 	end,
+-- }
 return {
-	"glepnir/oceanic-material",
+	"catppuccin/nvim",
+	name = "catppuccin",
+	priority = 1000,
 	config = function()
-		vim.cmd("set background=dark")
-		vim.cmd("colorscheme oceanic_material")
+		vim.cmd("colorscheme catppuccin-mocha")
 	end,
 }
 
