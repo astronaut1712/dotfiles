@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# chezmoi: run_onchange_ — reruns when THIS FILE changes (Brewfile checksum changes → file changes → reruns)
+# Installs / updates Homebrew packages from Brewfile.
+# Only runs on macOS.
+
+set -euo pipefail
+
+{{- if ne .chezmoi.os "darwin" }}
+exit 0  # Not macOS — skip silently
+{{- end }}
+
+log()  { echo "[brew-packages] $*"; }
+die()  { echo "[brew-packages] ERROR: $*" >&2; exit 1; }
+
+# Ensure Homebrew is on PATH (Apple Silicon vs Intel)
+if [[ "$(uname -m)" == "arm64" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/local/bin/brew shellenv 2>/dev/null || true)"
+fi
+
+if ! command -v brew &>/dev/null; then
+  die "Homebrew not found. Run install.sh first."
+fi
+
+# The Brewfile content is embedded as a template comment so chezmoi detects changes.
+# chezmoi_brewfile_hash: {{ include "Brewfile" | sha256sum }}
+
+BREWFILE_PATH="$(chezmoi source-path)/Brewfile"
+if [[ ! -f "$BREWFILE_PATH" ]]; then
+  # Fallback: use the applied location
+  BREWFILE_PATH="$HOME/.Brewfile"
+fi
+
+log "Running brew bundle from $BREWFILE_PATH ..."
+brew bundle --file="$BREWFILE_PATH" --no-lock
+
+log "brew bundle complete."

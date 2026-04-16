@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# chezmoi: run_once_ — runs once per content hash.
+# Installs core packages on Ubuntu/Linux via apt.
+# Only runs on Linux.
+
+set -euo pipefail
+
+{{- if ne .chezmoi.os "linux" }}
+exit 0  # Not Linux — skip silently
+{{- end }}
+
+log()  { echo "[linux-packages] $*"; }
+
+log "Updating apt package lists..."
+sudo apt-get update -qq
+
+log "Installing core packages..."
+sudo apt-get install -y \
+  zsh \
+  curl \
+  git \
+  tmux \
+  wget \
+  vim \
+  neovim \
+  fzf \
+  jq \
+  ripgrep \
+  bat \
+  fd-find \
+  tree \
+  btop \
+  tldr
+
+# ── Install chezmoi (if not already present) ──────────────────────────────────
+if ! command -v chezmoi &>/dev/null; then
+  log "Installing chezmoi via curl..."
+  sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# ── Set zsh as default shell (if not already) ─────────────────────────────────
+CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
+ZSH_PATH="$(command -v zsh)"
+if [[ "$CURRENT_SHELL" != "$ZSH_PATH" ]]; then
+  log "Setting zsh as default shell..."
+  chsh -s "$ZSH_PATH" "$USER" || log "Warning: could not change shell automatically. Run: chsh -s $(which zsh)"
+fi
+
+log "Linux package install complete."
