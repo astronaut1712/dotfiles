@@ -23,6 +23,8 @@ require("lazy").setup({
   },
 
   { import = "plugins" },
+  { import = "quang.plugins" },
+  { import = "quang.plugins.lsp" },
 }, lazy_config)
 
 -- load theme
@@ -35,5 +37,4 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
-
-require("quang.lazy")
+require "quang.core"
