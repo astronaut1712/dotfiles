@@ -15,7 +15,8 @@ return {
         enable = true,
         disable = function(_, buf)
           local max_filesize = 100 * 1024 -- 100 KB
-          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          local uv = vim.uv or vim.loop -- vim.loop removed in nvim 0.12
+          local ok, stats = pcall(uv.fs_stat, vim.api.nvim_buf_get_name(buf))
           if ok and stats and stats.size > max_filesize then
             return true
           end
