@@ -45,7 +45,27 @@ setup_linux_baseline() {
   sudo apt-get install -y curl git
 }
 
-# ── 4. Install chezmoi ────────────────────────────────────────────────────────
+# ── 4. Install common CLI utilities ───────────────────────────────────────────
+install_utilities() {
+  log "Installing common CLI utilities..."
+  if [[ "$OS" == "Darwin" ]]; then
+    brew install btop htop jq yq tree wget ripgrep fd bat tldr
+  else
+    sudo apt-get install -y \
+      btop htop jq tree wget ripgrep bat fd-find tldr
+    # yq is not in default apt repos — install via binary
+    if ! command -v yq &>/dev/null; then
+      log "Installing yq..."
+      YQ_ARCH="amd64"
+      [[ "$ARCH" == "aarch64" ]] && YQ_ARCH="arm64"
+      curl -fsSL "https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${YQ_ARCH}" -o /tmp/yq
+      sudo install /tmp/yq /usr/local/bin/yq
+      rm -f /tmp/yq
+    fi
+  fi
+}
+
+# ── 5. Install chezmoi ────────────────────────────────────────────────────────
 install_chezmoi() {
   if command -v chezmoi &>/dev/null; then
     log "chezmoi already installed — skipping"
@@ -60,7 +80,7 @@ install_chezmoi() {
   fi
 }
 
-# ── 5. Run chezmoi init --apply ───────────────────────────────────────────────
+# ── 6. Run chezmoi init --apply ───────────────────────────────────────────────
 run_chezmoi_init() {
   log "Running chezmoi init --apply from $DOTFILES_REPO ..."
   chezmoi init --apply "$DOTFILES_REPO"
@@ -76,6 +96,7 @@ else
   die "Unsupported OS: $OS"
 fi
 
+install_utilities
 install_chezmoi
 run_chezmoi_init
 
