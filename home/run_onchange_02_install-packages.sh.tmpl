@@ -26,10 +26,9 @@ fi
 # The Brewfile content is embedded as a template comment so chezmoi detects changes.
 # chezmoi_brewfile_hash: {{ include "Brewfile" | sha256sum }}
 
-BREWFILE_PATH="$(chezmoi source-path)/Brewfile"
+BREWFILE_PATH="{{ .chezmoi.sourceDir }}/Brewfile"
 if [[ ! -f "$BREWFILE_PATH" ]]; then
-  # Fallback: use the applied location
-  BREWFILE_PATH="$HOME/.Brewfile"
+  die "Brewfile not found at $BREWFILE_PATH"
 fi
 
 log "Running brew bundle from $BREWFILE_PATH ..."
