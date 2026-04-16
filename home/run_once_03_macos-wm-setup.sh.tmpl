@@ -25,10 +25,13 @@ if echo "$SIP_STATUS" | grep -qi "enabled"; then
   log "⚠ SIP is enabled — some Sketchybar features may be limited"
 elif echo "$SIP_STATUS" | grep -qi "disabled"; then
   log "✓ SIP is disabled — full Sketchybar support available"
-else
+fi
+
 # ── Section 2: Install SbarLua ────────────────────────────────────────────────
 
 SBARLUA_PATHS=(
+  "$HOME/.local/share/sketchybar_lua/sketchybar.so"
+)
 SBARLUA_INSTALLED=false
 for p in "${SBARLUA_PATHS[@]}"; do
   if [[ -f "$p" ]]; then

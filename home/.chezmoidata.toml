@@ -4,7 +4,5 @@
 [data]
     # Homebrew tap for sketchybar (macOS)
     sketchybar_tap = "FelixKratz/formulae"
-    # Yabai formulae source
-    yabai_tap = "koekeishiya/formulae"
     # mise install URL
     mise_install_url = "https://mise.run"
