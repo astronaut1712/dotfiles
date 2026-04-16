@@ -33,6 +33,6 @@ if [[ ! -f "$BREWFILE_PATH" ]]; then
 fi
 
 log "Running brew bundle from $BREWFILE_PATH ..."
-brew bundle --file="$BREWFILE_PATH" --no-lock
+brew bundle --file="$BREWFILE_PATH"
 
 log "brew bundle complete."

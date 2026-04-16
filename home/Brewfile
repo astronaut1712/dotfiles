@@ -40,7 +40,7 @@ brew "nowplaying-cli"            # sketchybar media widget
 cask "sf-symbols"                # sketchybar icon set
 
 # ── Fonts ────────────────────────────────────────────────────────────────────
-tap "homebrew/cask-fonts"
+
 cask "font-meslo-lg-nerd-font"   # recommended for Powerlevel10k
 cask "font-jetbrains-mono-nerd-font"
 cask "font-sf-mono"              # sketchybar default font
