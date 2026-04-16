@@ -67,7 +67,6 @@ CONFIGS=(
   "${HOME}/.config/nvim"
   "${HOME}/.config/wezterm"
   "${HOME}/.config/sketchybar"
-  "${HOME}/.config/yabai"
 )
 for dir in "${CONFIGS[@]}"; do
   if [[ -d "$dir" ]]; then
@@ -96,7 +95,7 @@ done
 
 # ── 7. macOS: stop window management services ────────────────────────────────
 if [[ "$OS" == "Darwin" ]]; then
-  for svc in sketchybar yabai skhd; do
+  for svc in sketchybar skhd; do
     if command -v "$svc" &>/dev/null; then
       if confirm "Stop and unload $svc service?"; then
         brew services stop "$svc" 2>/dev/null || true

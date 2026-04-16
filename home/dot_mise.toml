@@ -3,5 +3,5 @@
 # Run `mise install` after changes to pull new versions.
 
 [tools]
-go   = "1.22"
+go = "1.26"
 node = "lts"

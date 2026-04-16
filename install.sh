@@ -99,5 +99,6 @@ fi
 install_utilities
 install_chezmoi
 run_chezmoi_init
+mise install
 
 log "Bootstrap complete. Open a new shell to activate your environment."

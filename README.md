@@ -11,9 +11,8 @@ Personal dotfiles managed by [chezmoi](https://www.chezmoi.io/).
 - **Neovim** (lazy.nvim plugin manager)
 - **Tmux** with TPM plugins
 - **WezTerm** terminal emulator
-- **mise** for runtime versions (Go 1.22, Node LTS)
+- **mise** for runtime versions (Go 1.26, Node LTS)
 - **Sketchybar** macOS menu bar (macOS only)
-- **Yabai** tiling window manager (macOS only)
 - CLI tools: bat, fd, ripgrep, btop, lazygit, fzf, jq, and more (via Brewfile)
 
 ## Install

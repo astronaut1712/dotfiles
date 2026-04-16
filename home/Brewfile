@@ -3,9 +3,7 @@
 # Re-runs automatically when this file changes (run_onchange_ script).
 
 # ── Package managers / taps ──────────────────────────────────────────────────
-tap "homebrew/bundle"
 tap "FelixKratz/formulae"        # sketchybar
-tap "koekeishiya/formulae"       # yabai, skhd
 
 # ── Shell ────────────────────────────────────────────────────────────────────
 brew "zsh"
@@ -32,8 +30,6 @@ cask "1password-cli"             # required: PKGM-01 (op CLI)
 
 # ── Window Management (macOS) ────────────────────────────────────────────────
 brew "sketchybar"                # required: MACOS-01
-brew "yabai"                     # required: MACOS-01
-brew "skhd"                      # hotkey daemon for yabai
 brew "lua"                       # sketchybar Lua config runtime
 brew "switchaudio-osx"           # sketchybar audio widget
 brew "nowplaying-cli"            # sketchybar media widget

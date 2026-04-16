@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # chezmoi:template:left-delimiter="{{" right-delimiter="}}"
 # chezmoi: run_once_ — runs once per content hash (idempotent)
-# macOS Window Manager Setup — Sketchybar + Yabai
+# macOS Window Manager Setup — Sketchybar
 # Installs SbarLua, builds helper binaries, downloads Sketchybar app font.
-# Warns about SIP but never fails due to SIP status.
 
 {{- if ne .chezmoi.os "darwin" }}
 exit 0  # Not macOS — skip silently
@@ -23,37 +22,13 @@ printf '════════════════════════
 SIP_STATUS="$(csrutil status 2>/dev/null || echo "unknown")"
 
 if echo "$SIP_STATUS" | grep -qi "enabled"; then
-  printf '┌──────────────────────────────────────────────┐\n'
-  printf '│  ⚠  System Integrity Protection is ENABLED   │\n'
-  printf '├──────────────────────────────────────────────┤\n'
-  printf '│  Yabai window management features require    │\n'
-  printf '│  SIP to be disabled for full functionality.  │\n'
-  printf '│                                              │\n'
-  printf '│  Sketchybar works without SIP but some       │\n'
-  printf '│  features may be limited.                    │\n'
-  printf '│                                              │\n'
-  printf '│  Guide: https://github.com/koekeishiya/      │\n'
-  printf '│    yabai/wiki/Disabling-System-Integrity-    │\n'
-  printf '│    Protection                                │\n'
-  printf '│                                              │\n'
-  printf '│  Continuing setup — configs will be applied  │\n'
-  printf '│  but some features will not work until SIP   │\n'
-  printf '│  is disabled and you reboot.                 │\n'
-  printf '└──────────────────────────────────────────────┘\n\n'
+  log "⚠ SIP is enabled — some Sketchybar features may be limited"
 elif echo "$SIP_STATUS" | grep -qi "disabled"; then
-  log "✓ SIP is disabled — full Yabai/Sketchybar support available"
+  log "✓ SIP is disabled — full Sketchybar support available"
 else
-  warn "Could not determine SIP status (csrutil returned: $SIP_STATUS)"
-  log "Continuing setup anyway..."
-fi
-
 # ── Section 2: Install SbarLua ────────────────────────────────────────────────
 
 SBARLUA_PATHS=(
-  "/usr/local/lib/lua/5.4/sketchybar.so"
-  "/opt/homebrew/lib/lua/5.4/sketchybar.so"
-)
-
 SBARLUA_INSTALLED=false
 for p in "${SBARLUA_PATHS[@]}"; do
   if [[ -f "$p" ]]; then

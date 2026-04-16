@@ -16,14 +16,4 @@ README.md
 {{ if ne .chezmoi.os "darwin" }}
 .config/sketchybar
 .config/sketchybar/**
-.config/yabai
-.config/yabai/**
-{{ end }}
-
-# macOS-only window manager configs
-{{ if ne .chezmoi.os "darwin" }}
-.config/sketchybar
-.config/sketchybar/**
-.config/yabai
-.config/yabai/**
 {{ end }}

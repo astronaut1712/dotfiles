@@ -20,7 +20,6 @@ This is a personal dotfiles repository managed by **chezmoi**, not a software pr
   - `dot_config/nvim/` - Neovim config (lazy.nvim based)
   - `dot_config/wezterm/` - WezTerm terminal config
   - `dot_config/sketchybar/` - macOS menu bar (Lua-based, with C helper providers)
-  - `dot_config/yabai/` - macOS tiling window manager
   - `run_once_*.sh.tmpl` - One-time setup scripts (mise install, Linux packages, macOS WM)
   - `run_onchange_*.sh.tmpl` - Re-run on change scripts (Brewfile)
   - `.chezmoiexternal.toml` - External downloads (Oh-My-Zsh, Powerlevel10k, zsh-autosuggestions, TPM)
@@ -46,7 +45,6 @@ chezmoi diff             # preview pending changes
 - **NVim**: Lazy.nvim plugin manager, Treesitter for syntax, LSP for Go/TS
 - **Wezterm**: Terminal emulator with custom keybindings
 - **Sketchybar**: macOS menu bar (requires SIP disable for full features)
-- **Yabai**: macOS tiling window manager (requires SIP disable)
 - **mise**: Runtime versions — Go 1.22, Node LTS
 
 ## No standard development workflow
