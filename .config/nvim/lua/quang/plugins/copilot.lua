@@ -3,7 +3,7 @@ return {
   cmd = "Copilot",
   event = "InsertEnter",
   config = function()
-    require('copilot').setup({
+    require("copilot").setup({
       panel = {
         enabled = true,
         auto_refresh = false,
@@ -22,6 +22,7 @@ return {
       suggestion = {
         enabled = true,
         auto_trigger = true,
+        hide_during_completion = true,
         debounce = 75,
         keymap = {
           accept = "<M-l>",
@@ -34,17 +35,15 @@ return {
       },
       filetypes = {
         yaml = false,
-        go = true,
-        javascript = true,
-        typescript = true,
-        markdown = true,
+        markdown = false,
         help = false,
-        gitcommit = true,
+        gitcommit = false,
         gitrebase = false,
         hgcommit = false,
         svn = false,
         cvs = false,
         ["."] = false,
+        ["*"] = true,
       },
       copilot_node_command = 'node', -- Node.js version must be > 18.x
       server_opts_overrides = {},
