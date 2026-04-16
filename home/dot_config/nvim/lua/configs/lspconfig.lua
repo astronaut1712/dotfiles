@@ -15,4 +15,4 @@ vim.lsp.enable({
 	"yamlls",
 	"terraformls",
 	"ts_ls",
-})
+  "rust_analyzer",
