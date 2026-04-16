@@ -1,0 +1,27 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[user]
+	email = quang.astronaut@gmail.com
+	name = QuangNX
+	signingkey = 323B9ED83223DE0F
+
+[gpg]
+	format = openpgp
+; [gpg "ssh"]
+; 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = false
+
+[url "git@github.com:ronin-nexus/"]
+	insteadOf = https://github.com/ronin-nexus/
+[core]
+	sshCommand = ssh -i /Users/quangnguyen/.ssh/id_rsa
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
