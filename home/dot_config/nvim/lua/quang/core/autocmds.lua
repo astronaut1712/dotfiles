@@ -6,9 +6,8 @@ local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 -- Set indentation to 2 spaces
 augroup("setIndent", { clear = true })
-augroup("enableTreesitter", { clear = true })
 autocmd("Filetype", {
-	group = "enableTreesitter",
+	group = "setIndent",
 	pattern = {
 		"go",
 		"python",
@@ -16,29 +15,18 @@ autocmd("Filetype", {
 		"typescript",
 		"gomod",
 		"gosum",
-		"lua",
 		"svelte",
 		"vue",
 		"regex",
+		"tsx",
+		"jsx",
 	},
-	callback = function(args)
-		vim.treesitter.start()
-		vim.bo[args.buf].expandtab = true
-		vim.bo[args.buf].shiftwidth = 4
-		vim.bo[args.buf].tabstop = 4
-		-- vim.bo[args.buf].softtabstop = 4
-	end,
+	command = "setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4",
 })
 autocmd("Filetype", {
 	group = "setIndent",
-	pattern = { "lua", "rust", "yaml", "markdown", "html", "css", "json", "tsx", "jsx" },
-	callback = function(args)
-		vim.treesitter.start()
-		vim.bo[args.buf].expandtab = true
-		vim.bo[args.buf].shiftwidth = 2
-		vim.bo[args.buf].tabstop = 2
-		vim.bo[args.buf].softtabstop = 2
-	end,
+	pattern = { "lua", "rust", "yaml", "markdown", "html", "css", "json" },
+	command = "setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2",
 })
 
 autocmd("BufReadPre", {
@@ -52,3 +40,18 @@ autocmd("BufReadPre", {
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		pcall(vim.treesitter.start)
+	end,
+})
+
+local create_cmd = vim.api.nvim_create_user_command
+
+create_cmd("TSInstallAll", function()
+	local spec = require("lazy.core.config").plugins["nvim-treesitter"]
+	local opts = type(spec.opts) == "table" and spec.opts or {}
+	require("nvim-treesitter").install(opts.ensure_installed)
+end, {})
