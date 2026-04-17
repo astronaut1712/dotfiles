@@ -57,6 +57,12 @@ brew "git"
 # ── Rust ─────────────────────────────────────────────────────────────────────
 brew "rust-analyzer"             # LSP server (toolchain managed by mise)
 
+# ── Cloud / Kubernetes ───────────────────────────────────────────────────────
+brew "kubectl"                   # Kubernetes CLI
+brew "k9s"                       # Kubernetes TUI
+cask "google-cloud-sdk"          # gcloud CLI + SDK
+brew "awscli"                    # AWS CLI v2
+
 # ── AI Coding Tools ──────────────────────────────────────────────────────────
 cask "visual-studio-code"        # VS Code editor
 brew "sst/tap/opencode"          # opencode AI coding agent (SST)
