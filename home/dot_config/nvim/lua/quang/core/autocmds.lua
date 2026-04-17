@@ -6,26 +6,20 @@ local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 -- Set indentation to 2 spaces
 augroup("setIndent", { clear = true })
+augroup("enableTreesitter", { clear = true })
 autocmd("Filetype", {
-	group = "setIndent",
+	group = "enableTreesitter",
 	pattern = {
 		"go",
 		"python",
 		"javascript",
 		"typescript",
-		"html",
-		"css",
-		"json",
 		"gomod",
 		"gosum",
-		"rust",
-		"yaml",
-		"markdown",
 		"lua",
 		"svelte",
 		"vue",
-		"tsx",
-		"jsx",
+		"regex",
 	},
 	callback = function(args)
 		vim.treesitter.start()
@@ -38,5 +32,23 @@ autocmd("Filetype", {
 autocmd("Filetype", {
 	group = "setIndent",
 	pattern = { "lua", "rust", "yaml", "markdown", "html", "css", "json", "tsx", "jsx" },
-	command = "setlocal shiftwidth=2 tabstop=2",
+	callback = function(args)
+		vim.treesitter.start()
+		vim.bo[args.buf].expandtab = true
+		vim.bo[args.buf].shiftwidth = 2
+		vim.bo[args.buf].tabstop = 2
+		vim.bo[args.buf].softtabstop = 2
+	end,
+})
+
+autocmd("BufReadPre", {
+	callback = function()
+		local size = vim.fn.getfsize(vim.fn.expand("%"))
+		if size > 200 * 1024 then
+			vim.opt.cursorline = false
+			vim.opt.colorcolumn = ""
+			vim.opt.syntax = "off"
+			vim.opt.wrap = false
+		end
+	end,
 })

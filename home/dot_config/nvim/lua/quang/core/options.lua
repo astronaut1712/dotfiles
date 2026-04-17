@@ -21,6 +21,8 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
+vim.cmd("set synmaxcol=200")
+
 -- clipboard
 opt.clipboard:append("unnamedplus")
 
