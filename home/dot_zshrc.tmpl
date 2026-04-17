@@ -55,3 +55,8 @@ alias cm='chezmoi'
 
 # ── P10k source (must stay at bottom) ──────────────────────────
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# ── Local overrides (machine-specific, not tracked by chezmoi) ──
+# Create ~/.zshrc.local to add aliases, exports, or secrets
+# that should NOT be committed to the dotfiles repo.
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
