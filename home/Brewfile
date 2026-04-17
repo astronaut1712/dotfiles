@@ -71,7 +71,6 @@ brew "figlet"                    # large ASCII-art text banners
 brew "cmatrix"                   # The Matrix rain animation
 brew "asciiquarium"              # aquarium in your terminal
 brew "asciinema"                 # record & share terminal sessions
-brew "ascii-image-converter"     # convert images to ASCII / block art
 brew "jp2a"                      # convert JPEG images to ASCII art
 
 # ── AI Coding Tools ──────────────────────────────────────────────────────────
