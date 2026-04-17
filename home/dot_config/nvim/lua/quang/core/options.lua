@@ -1,7 +1,7 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
-opt.cursorlineopt ='both' -- to enable cursorline!
+opt.cursorlineopt = "both" -- to enable cursorline!
 opt.relativenumber = true
 opt.number = true
 
@@ -30,15 +30,15 @@ opt.splitbelow = true
 
 local notify_original = vim.notify
 vim.notify = function(msg, ...)
-  if
-    msg
-    and (
-      msg:match 'position_encoding param is required'
-      or msg:match 'Defaulting to position encoding of the first client'
-      or msg:match 'multiple different client offset_encodings'
-    )
-  then
-    return
-  end
-  return notify_original(msg, ...)
+	if
+		msg
+		and (
+			msg:match("position_encoding param is required")
+			or msg:match("Defaulting to position encoding of the first client")
+			or msg:match("multiple different client offset_encodings")
+		)
+	then
+		return
+	end
+	return notify_original(msg, ...)
 end

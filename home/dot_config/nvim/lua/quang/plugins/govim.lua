@@ -12,7 +12,9 @@ return {
 			pattern = "*.go",
 			callback = function()
 				-- require('go.format').goimports()
-				local params = vim.lsp.util.make_range_params()
+				local clients = vim.lsp.get_clients({ bufnr = 0 })
+				local enc = (clients[1] or {}).offset_encoding or "utf-8"
+				local params = vim.lsp.util.make_range_params(0, enc)
 				params.context = { source = { organizeImports = true } }
 				local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
 				for cid, res in pairs(result or {}) do
