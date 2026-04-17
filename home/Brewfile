@@ -63,6 +63,14 @@ brew "k9s"                       # Kubernetes TUI
 cask "google-cloud-sdk"          # gcloud CLI + SDK
 brew "awscli"                    # AWS CLI v2
 
+# ── Fun / Eye candy ──────────────────────────────────────────────────────────
+brew "cowsay"                    # ASCII cow (and friends) say things
+brew "fortune"                   # random fortune cookies
+brew "lolcat"                    # rainbow-coloured output
+brew "figlet"                    # large ASCII-art text banners
+brew "cmatrix"                   # The Matrix rain animation
+brew "asciiquarium"              # aquarium in your terminal
+
 # ── AI Coding Tools ──────────────────────────────────────────────────────────
 cask "visual-studio-code"        # VS Code editor
 brew "sst/tap/opencode"          # opencode AI coding agent (SST)
