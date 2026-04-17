@@ -53,6 +53,7 @@ brew "tree"
 brew "lazygit"
 brew "jq"
 brew "git"
+brew "ncdu"
 
 # ── Rust ─────────────────────────────────────────────────────────────────────
 brew "rust-analyzer"             # LSP server (toolchain managed by mise)
