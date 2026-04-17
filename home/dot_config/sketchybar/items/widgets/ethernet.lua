@@ -3,9 +3,9 @@ local colors = require("colors")
 local settings = require("settings")
 
 -- Execute the event provider binary which provides the event "network_update"
--- for the network interface "en1", which is fired every 2.0 seconds.
+-- for the network interface "en0", which is fired every 2.0 seconds.
 sbar.exec(
-	"killall network_load >/dev/null; $CONFIG_DIR/helpers/event_providers/network_load/bin/network_load en1 network_update 2.0"
+	"killall network_load >/dev/null; $CONFIG_DIR/helpers/event_providers/network_load/bin/network_load en0 network_update 2.0"
 )
 
 local popup_width = 250
@@ -176,7 +176,7 @@ wifi_up:subscribe("network_update", function(env)
 end)
 
 wifi:subscribe({ "wifi_change", "system_woke" }, function(env)
-	sbar.exec("ipconfig getifaddr en1", function(ip)
+	sbar.exec("ipconfig getifaddr en0", function(ip)
 		local connected = not (ip == "")
 		wifi:set({
 			icon = {
@@ -198,16 +198,16 @@ local function toggle_details()
 		sbar.exec("networksetup -getcomputername", function(result)
 			hostname:set({ label = result })
 		end)
-		sbar.exec("ipconfig getifaddr en1", function(result)
+		sbar.exec("ipconfig getifaddr en0", function(result)
 			ip:set({ label = result })
 		end)
-		sbar.exec("ipconfig getsummary en1 | awk -F ' SSID : '  '/ SSID : / {print $2}'", function(result)
+		sbar.exec("ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}'", function(result)
 			ssid:set({ label = result })
 		end)
-		sbar.exec("networksetup -getinfo Wi-Fi | awk -F 'Subnet mask: ' '/^Subnet mask: / {print $2}'", function(result)
+		sbar.exec("networksetup -getinfo Ethernet | awk -F 'Subnet mask: ' '/^Subnet mask: / {print $2}'", function(result)
 			mask:set({ label = result })
 		end)
-		sbar.exec("networksetup -getinfo Wi-Fi | awk -F 'Router: ' '/^Router: / {print $2}'", function(result)
+		sbar.exec("networksetup -getinfo Ethernet | awk -F 'Router: ' '/^Router: / {print $2}'", function(result)
 			router:set({ label = result })
 		end)
 	else
