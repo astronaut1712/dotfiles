@@ -8,7 +8,25 @@ local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 augroup("setIndent", { clear = true })
 autocmd("Filetype", {
 	group = "setIndent",
-	pattern = { "go" },
+	pattern = {
+		"go",
+		"python",
+		"javascript",
+		"typescript",
+		"html",
+		"css",
+		"json",
+		"gomod",
+		"gosum",
+		"rust",
+		"yaml",
+		"markdown",
+		"lua",
+		"svelte",
+		"vue",
+		"tsx",
+		"jsx",
+	},
 	callback = function(args)
 		vim.treesitter.start()
 		vim.bo[args.buf].expandtab = true
@@ -19,6 +37,6 @@ autocmd("Filetype", {
 })
 autocmd("Filetype", {
 	group = "setIndent",
-	pattern = { "lua" },
+	pattern = { "lua", "rust", "yaml", "markdown", "html", "css", "json", "tsx", "jsx" },
 	command = "setlocal shiftwidth=2 tabstop=2",
 })
