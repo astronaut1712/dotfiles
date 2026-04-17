@@ -2,16 +2,18 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "main",
 	event = { "BufReadPre", "BufNewFile" },
-	build = ":TSUpdate",
+	cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+	build = ":TSUpdate | TSInstallAll",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
 	},
-	options = {
+	opts = {
 		ensure_installed = {
 			"json",
 			"javascript",
 			"typescript",
 			"tsx",
+			"jsx",
 			"yaml",
 			"html",
 			"css",
