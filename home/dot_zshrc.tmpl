@@ -46,10 +46,16 @@ eval "$(mise activate zsh)"
 [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [[ -f /usr/share/fzf/completion.zsh ]]                 && source /usr/share/fzf/completion.zsh
 {{ end -}}
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --info=inline'
 
 # ── Aliases ─────────────────────────────────────────────────────
 alias lg='lazygit'
-alias lc='lsd'
+alias lc='eza --icons --group-directories-first'
+alias ll='eza -lah --icons --group-directories-first'
+alias lt='eza --tree --icons'
 alias weather="curl -s wttr.in | lolcat -a -d 5"
 alias cm='chezmoi'
 

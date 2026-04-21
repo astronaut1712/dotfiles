@@ -54,12 +54,14 @@ brew "lazygit"
 brew "jq"
 brew "git"
 brew "ncdu"
+brew "eza"                       # modern ls replacement
 
 # ── Rust ─────────────────────────────────────────────────────────────────────
 brew "rust-analyzer"             # LSP server (toolchain managed by mise)
 
 # ── Cloud / Kubernetes ───────────────────────────────────────────────────────
 brew "kubectl"                   # Kubernetes CLI
+brew "helm"                      # Kubernetes package manager
 brew "k9s"                       # Kubernetes TUI
 cask "google-cloud-sdk"          # gcloud CLI + SDK
 brew "awscli"                    # AWS CLI v2
