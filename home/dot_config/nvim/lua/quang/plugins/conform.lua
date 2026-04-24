@@ -8,6 +8,8 @@ return {
 				go = { "gofmt" },
 				css = { "prettier" },
 				html = { "prettier" },
+				json = { "prettier" },
+				javascript = { "prettier" },
 			},
 
 			format_on_save = {

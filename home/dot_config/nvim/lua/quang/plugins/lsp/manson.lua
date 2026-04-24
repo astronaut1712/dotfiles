@@ -43,6 +43,9 @@ return {
 				"solidity",
 				"biome",
 				"yamlls",
+				"bashls",
+				"jsonls",
+				"rust_analyzer",
 			},
 		})
 

@@ -4,6 +4,8 @@ local opt = vim.opt
 opt.cursorlineopt = "both" -- to enable cursorline!
 opt.relativenumber = true
 opt.number = true
+opt.syntax = "on"
+opt.wrap = true
 
 -- tabs & indent
 opt.tabstop = 2
@@ -20,8 +22,6 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
-
-vim.cmd("set synmaxcol=200")
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
