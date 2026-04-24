@@ -53,6 +53,8 @@ brew "tree"
 brew "lazygit"
 brew "jq"
 brew "git"
+brew "tig"
+brew "gpg"
 brew "ncdu"
 brew "eza"                       # modern ls replacement
 

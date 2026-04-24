@@ -34,6 +34,7 @@ local memory = sbar.add("graph", "widgets.memory", 42, {
 
 memory:subscribe("memory_update", function(env)
 	local load = tonumber(env.memory_load)
+	memory:push({ load / 100. })
 
 	local color = colors.blue
 	if load > 30 then

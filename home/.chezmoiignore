@@ -6,6 +6,8 @@ README.md
 
 # Nvim lazy lock file
 .config/nvim/lazy-lock.json
+.gitconfig
+.oh-my-zsh/cache/
 
 # macOS-only window manager configs
 {{ if ne .chezmoi.os "darwin" }}
